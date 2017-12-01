@@ -18,7 +18,7 @@ baseline = ["3.1", "3.0"]
 
 Audio = ["aac", "libmp3lame"]
 
-TERMINAL = "xfce4-terminal" # <-- Change to your terminal name if needed.
+TERMINAL = "gnome-terminal" # <-- Change to your terminal name if needed.
 
 PID = 0
 
@@ -360,7 +360,7 @@ class MainWindow(Gtk.Window):
             return False
 
         self.set_sensitive(False)
-        filename = basename(self.textbox1.get_text())
+        filename = basename(self.textbox2.get_text())
 
         aCodec = "aac"
         if self.comboAudio.get_active_text() == "libmp3lame":
