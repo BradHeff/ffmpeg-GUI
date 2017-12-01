@@ -3,6 +3,7 @@ import subprocess
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
+from os.path import basename
 
 aspectRatio = ["16:9", "1.85", "2.40"]
 
@@ -359,12 +360,14 @@ class MainWindow(Gtk.Window):
             return False
 
         self.set_sensitive(False)
+        filename = basename(self.textbox1.get_text())
 
         aCodec = "aac"
         if self.comboAudio.get_active_text() == "libmp3lame":
             aCodec = "libmp3lame -qscale:a 2"
 
-        command = "ffmpeg -i '" + self.textbox1.get_text() + "' -vf scale=" + self.comboRes.get_active_text() + \
+        command = "ffmpeg -i '" + self.textbox1.get_text() + "' -metadata title='" + filename + "' -vf scale=" + \
+                  self.comboRes.get_active_text() + \
                   " -aspect " + self.comboAspect.get_active_text() + " -acodec " \
                   + aCodec + " -b:a " + self.textbox4.get_text() + "k -vcodec mpeg4 -b:v " + \
                   self.textbox3.get_text() + "K -c:v libx264 -profile:v " + self.comboProfile.get_active_text() + \
