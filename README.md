@@ -33,9 +33,9 @@ you can make the script executable and symlink it to your **_/usr/bin_** or **_/
 
 2. symlink the script
 
-  * replace **_USER_** with your username
+	* replace **_USER_** with your username
 
-  * replace **_DIR_** with the directoy were you cloned your ffmpeg-GUI repository
+	* replace **_DIR_** with the directory were you cloned your ffmpeg-GUI repository
 
 	```bash
 
