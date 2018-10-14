@@ -21,7 +21,7 @@ This is a GUI i made to encode video files with ease, to use this just do the fo
 ALTERNATIVELY
 ------
 
-you can make the script executable and symlink it to your **_/usr/bin_** or **_/usr/local/bin_**.
+you can make the script executable and symlink it to your **_/usr/bin_** or **_/usr/local/bin_** to run from rofi or terminal anywere
 
 1. make the script executable
 
@@ -33,6 +33,7 @@ you can make the script executable and symlink it to your **_/usr/bin_** or **_/
 
 	
 	* if you do not wish to symlink you can just leave it at being executable and run the script from within its directory with the following
+
 
 	```bash
 	./ffmpegGUI.py
