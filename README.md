@@ -36,8 +36,6 @@ Installation:
 Alternative Installation
 ------
 
-you can make the script executable and symlink it to your **_/usr/bin_** or **_/usr/local/bin_** to run from rofi or terminal anywere
-
 1. make the script executable
 
 	```bash 
@@ -59,6 +57,8 @@ you can make the script executable and symlink it to your **_/usr/bin_** or **_/
 
 Optional:
 ---
+
+symlink it to your **_/usr/bin_** or **_/usr/local/bin_**
 
 1. symlink the script
 
