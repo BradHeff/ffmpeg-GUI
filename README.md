@@ -18,7 +18,7 @@ This is a GUI i made to encode video files with ease, to use this just do the fo
 
 	```
 
-Alt-ALTERNATIVELY
+ALTERNATIVELY
 ------
 
 you can make the script executable and symlink it to your **_/usr/bin_** or **_/usr/local/bin_**.
