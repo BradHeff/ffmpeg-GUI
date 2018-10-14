@@ -26,17 +26,17 @@ you can make the script executable and symlink it to your **_/usr/bin_** or **_/
 1. make the script executable
 
 	```bash 
-	
+
 	chmod +x ffmpegGUI.py
-	
+
 	```
 
 	
 	* if you do not wish to symlink you can just leave it at being executable and run the script from within its directory with the following
 
-		```bash
-		./ffmpegGUI.py
-		```
+	```bash
+	./ffmpegGUI.py
+	```
 	
 2. symlink the script
 
