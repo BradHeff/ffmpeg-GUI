@@ -1,25 +1,29 @@
-# ffmpeg-GUI
-ffmpeg python Gtk GUI 
+# ffmpeg python Gtk GUI 
+
+This is a GUI i made to encode video files with ease, to use this just do the following.
+
+1. open terminal and clone repository
+
+	```bash
+
+	git clone https://github.com/BradHeff/ffmpeg-GUI.git && cd ffmpeg-GUI
+
+	```
+
+2. then run the ffmpegGUI.py
+
+	```bash
+
+	python3 ffmpegGUI.py
+
+	```
+
+Alt-ALTERNATIVELY
 ------
 
-This is a GUI i made to encode x264 video files with ease, to use this just run the following.
+you can make the script executable and symlink it to your **_/usr/bin_** or **_/usr/local/bin_**.
 
-1. open terminal in .py directory
-
-2. the run the .py file with python
-
-```bash
-
-python3 ffmpegGUI.py
-
-```
-
-Alt-ALTERNATIVLY
-------
-
-you can make the script executable.
-
-1. open terminal in .py directory and execute the following
+1. make the script executable
 
 	```bash 
 	
@@ -27,22 +31,23 @@ you can make the script executable.
 	
 	```
 
-2. now you can execute the script with the following
+2. symlink the script
 
-```bash
+  * replace **_USER_** with your username
 
-./ffmpegGUI.py
+  * replace **_DIR_** with the directoy were you cloned your ffmpeg-GUI repository
 
-```
+	```bash
 
-now you can symlink the script to run from termimal anywhere or rofi
+	sudo ln -s /home/_USER_/_DIR_/ffmpeg-GUI/ffmpegGUI.py /usr/bin/ffmpegGUI
 
-1. replace **_USER_** with your username
+	```
 
-2. replace **_DIR_** with the directoy(s) were you cloned your ffmpeg-GUI repository
+3. now you can execute the script with the following
 
-```bash
+	```bash
 
-sudo ln -s /home/_USER_/_DIR_/ffmpeg-GUI/ffmpegGUI.py /usr/bin/ffmpegGUI
+	ffmpegGUI.py
 
-```
+	```
+
