@@ -20,7 +20,7 @@ Installation:
 
 	```bash
 
-	git clone https://github.com/BradHeff/ffmpeg-GUI.git && cd ffmpeg-GUI
+	> git clone https://github.com/BradHeff/ffmpeg-GUI.git && cd ffmpeg-GUI
 
 	```
 
@@ -28,7 +28,7 @@ Installation:
 
 	```bash
 
-	python3 ffmpegGUI.py
+	> python3 ffmpegGUI.py
 
 	```
 
@@ -40,7 +40,7 @@ Alternative Installation
 
 	```bash 
 
-	chmod +x ffmpegGUI.py
+	> chmod +x ffmpegGUI.py
 
 	```
 
@@ -50,7 +50,7 @@ Alternative Installation
 
 	```bash
 	
-	./ffmpegGUI.py
+	> ./ffmpegGUI.py
 	
 	```
 	
@@ -68,7 +68,7 @@ symlink it to your **_/usr/bin_** or **_/usr/local/bin_**
 
 	```bash
 
-	sudo ln -s /home/_USER_/_DIR_/ffmpeg-GUI/ffmpegGUI.py /usr/bin/ffmpegGUI
+	> sudo ln -s /home/_USER_/_DIR_/ffmpeg-GUI/ffmpegGUI.py /usr/bin/ffmpegGUI
 
 	```
 
@@ -76,7 +76,7 @@ symlink it to your **_/usr/bin_** or **_/usr/local/bin_**
 
 	```bash
 
-	ffmpegGUI
+	> ffmpegGUI
 
 	```
 
