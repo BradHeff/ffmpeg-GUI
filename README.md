@@ -21,11 +21,8 @@ you can make the script executable.
 
 1. open terminal in .py directory and execute the following
 
-```bash
-
-chmod +x ffmpegGUI.py
-
-```
+...```bash 
+chmod +x ffmpegGUI.py```
 
 2. now you can execute the script with the following
 
