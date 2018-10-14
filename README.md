@@ -1,6 +1,6 @@
 # ffmpeg python Gtk GUI 
 
-![screenshot](https://github.com/BradHeff/ffmpeg-GUI/image.png)
+![screenshot](https://github.com/BradHeff/ffmpeg-GUI/blob/master/image.png)
 
 This is a GUI i made to encode video files with ease, to use this just do the following.
 
