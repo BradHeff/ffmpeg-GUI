@@ -6,6 +6,16 @@
 
 This is a GUI i made to encode video files with ease, to use this just do the following.
 
+NOTE:
+----
+
+Tested solely on URxvt. options for other terminals have been taken from online man pages and not tested. all execution commands use the option _-e_. 
+
+Any feedback is appreciated.
+
+Installation:
+---
+
 1. open terminal and clone repository
 
 	```bash
@@ -22,7 +32,8 @@ This is a GUI i made to encode video files with ease, to use this just do the fo
 
 	```
 
-ALTERNATIVELY
+
+Alternative Installation
 ------
 
 you can make the script executable and symlink it to your **_/usr/bin_** or **_/usr/local/bin_** to run from rofi or terminal anywere
@@ -35,14 +46,21 @@ you can make the script executable and symlink it to your **_/usr/bin_** or **_/
 
 	```
 
-	
-	* if you do not wish to symlink you can just leave it at being executable and run the script from within its directory with the following
 
-		```bash
-		./ffmpegGUI.py
-		```
+
+2. now you can run the script from within its directory with the following
+
+	```bash
 	
-2. symlink the script
+	./ffmpegGUI.py
+	
+	```
+	
+
+Optional:
+---
+
+1. symlink the script
 
 	* replace **_USER_** with your username
 
@@ -54,7 +72,7 @@ you can make the script executable and symlink it to your **_/usr/bin_** or **_/
 
 	```
 
-3. now you can execute the script with the following
+2. now you can execute the script with the following from rofi, dmenu or anywere in terminal.
 
 	```bash
 
