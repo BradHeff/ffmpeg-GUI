@@ -2,6 +2,8 @@
 
 ![screenshot](https://github.com/BradHeff/ffmpeg-GUI/blob/master/image.png)
 
+![screenshot](https://github.com/BradHeff/ffmpeg-GUI/blob/master/image2.png)
+
 This is a GUI i made to encode video files with ease, to use this just do the following.
 
 1. open terminal and clone repository
