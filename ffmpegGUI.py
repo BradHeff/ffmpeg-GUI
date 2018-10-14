@@ -30,8 +30,8 @@ MKV_Acodecs = ["aac", "mp3", "ac3", "vorbis", "opus"]
 
 bit = ["8bit", "10bit", "12bit"]
 
-SYSTERMS = ["urxvt", "xfce4-terminal", "gnome-terminal", "xterm", "terminator", "tilda", "guake", "yakuake", "roxterm", "eterm", 
-"wterm", "lxterminal", "konsole", "termkit", "st", "Final Term", "terminology", "lilyterm", "sakura"]
+SYSTERMS = ["urxvt", "xfce4-terminal", "gnome-terminal", "xterm", "terminator", "tilda", 
+"lxterminal", "konsole", "st"]
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -547,6 +547,24 @@ class ffmpegGUI(Gtk.Window):
 			md.destroy()
 			return False
 
+		TERMINAL = self.comboTERM.get_active_text()
+
+		G_SIZE="120x23"
+		GEOMETRY = "--geometry=" + G_SIZE
+		TITLE = "-T"
+
+		if TERMINAL == "urxvt" or TERMINAL == "xterm":
+			GEOMETRY = "-geometry"
+			TITLE = "-title"
+		elif TERMINAL == "lxterminal":
+			TITLE = "-t"
+		elif TERMINAL == "konsole":
+			TITLE = "--nofork"
+		elif TERMINAL = "st":
+			GEOMETRY = "-g"
+			
+
+
 		if self.comboAudio.get_active_text() == "mp3":
 			aCodec = "libmp3lame"
 			aArg = "-q:a"
@@ -566,9 +584,7 @@ class ffmpegGUI(Gtk.Window):
 		else:
 			aCodec = "ac3"
 			aArg = "-q:a"
-			aVal = "2"
-
-		TERMINAL = self.comboTERM.get_active_text()		
+			aVal = "2"		
 
 		if self.comboCodec.get_active_text() == "x264" or self.comboCodec.get_active_text() == "x264_lossless":			
 			bits = "-pix_fmt"
@@ -591,7 +607,7 @@ class ffmpegGUI(Gtk.Window):
 				CRF = "-crf"
 				CRF_VAL = "30"
 
-			COMMAND = [TERMINAL, "-title", "bash", "-geometry", "130x23", "-e", "ffmpeg", "-i", self.textbox1.get_text(), "-metadata", "title=" + os.path.basename(self.textbox2.get_text()), "-vf", "scale=" + self.comboRes.get_active_text(),
+			COMMAND = [TERMINAL, TITLE, "bash", GEOMETRY, G_SIZE, "-e", "ffmpeg", "-i", self.textbox1.get_text(), "-metadata", "title=" + os.path.basename(self.textbox2.get_text()), "-vf", "scale=" + self.comboRes.get_active_text(),
 				"-aspect", self.comboAspect.get_active_text(), "-acodec", aCodec, aArg, aVal, "-ar", "48000", "-b:a", self.textbox4.get_text() + "k", "-vcodec", "mpeg4", "-b:v", 
 				self.textbox3.get_text() + "K", "-c:v", "libx264", CRF, CRF_VAL, INPUT, self.comboProfile.get_active_text(), bits, bits_val, "-hide_banner", self.textbox2.get_text()]
 			
@@ -612,13 +628,13 @@ class ffmpegGUI(Gtk.Window):
 			else:
 				CRF = "crf=30"
 
-			COMMAND = [TERMINAL, "-title", "bash", "-geometry", "130x23", "-e", "ffmpeg", "-i", self.textbox1.get_text(), "-metadata", "title=" + os.path.basename(self.textbox2.get_text()), "-vf", "scale=" + self.comboRes.get_active_text(),
+			COMMAND = [TERMINAL, TITLE, "bash", GEOMETRY, G_SIZE, "-e", "ffmpeg", "-i", self.textbox1.get_text(), "-metadata", "title=" + os.path.basename(self.textbox2.get_text()), "-vf", "scale=" + self.comboRes.get_active_text(),
 				"-aspect", self.comboAspect.get_active_text(), "-acodec", aCodec, aArg, aVal, "-ar", "48000", "-b:a", self.textbox4.get_text() + "k", "-b:v", self.textbox3.get_text() + "K", "-c:v", "libx265", "-x265-params",
 				CRF, bits, bits_val, "-preset", self.comboProfile.get_active_text(), "-hide_banner", self.textbox2.get_text()]
 			
 
 		else:
-			COMMAND = [TERMINAL, "-title", "bash", "-geometry", "130x23", "-e", "ffmpeg", "-i", self.textbox1.get_text(), "-metadata", "title=" + os.path.basename(self.textbox2.get_text()), "-f", "matroska", "-vf", 
+			COMMAND = [TERMINAL, TITLE, "bash", GEOMETRY, G_SIZE, "-e", "ffmpeg", "-i", self.textbox1.get_text(), "-metadata", "title=" + os.path.basename(self.textbox2.get_text()), "-f", "matroska", "-vf", 
 				"scale=" + self.comboRes.get_active_text(), "-aspect", self.comboAspect.get_active_text(), "-acodec", aCodec, aArg, aVal, "-ar", "48000", "-b:a", self.textbox4.get_text() + "k", 
 				"-vcodec", "vp8", "-b:v", self.textbox3.get_text() + "K", "-hide_banner", self.textbox2.get_text()]
 			
