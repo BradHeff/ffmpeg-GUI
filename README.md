@@ -18,7 +18,7 @@ Dependencies
 * python3
 * GTK+ 3
 * [PyGObject](https://pygobject.readthedocs.io/en/latest/)
-
+* [GLib](https://developer.gnome.org/glib/2.28/glib-The-Main-Event-Loop.html)
 
 Installation:
 ---
