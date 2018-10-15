@@ -36,7 +36,15 @@ Installation:
 Alternative Installation
 ------
 
-1. make the script executable
+1. open terminal and clone repository
+
+	```bash
+
+	> git clone https://github.com/BradHeff/ffmpeg-GUI.git && cd ffmpeg-GUI
+
+	```
+
+2. make the script executable
 
 	```bash 
 
@@ -45,8 +53,7 @@ Alternative Installation
 	```
 
 
-
-2. now you can run the script from within its directory with the following
+3. now you can run the script from within its directory with the following
 
 	```bash
 	
