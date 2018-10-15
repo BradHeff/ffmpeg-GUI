@@ -33,6 +33,8 @@ bit = ["8bit", "10bit", "12bit"]
 SYSTERMS = ["urxvt", "xfce4-terminal", "gnome-terminal", "xterm", "terminator", "tilda", 
 "lxterminal", "konsole", "st"]
 
+error = 0;
+
 base_dir = os.path.dirname(os.path.realpath(__file__))
 
 class ffmpegGUI(Gtk.Window):
@@ -547,6 +549,7 @@ class ffmpegGUI(Gtk.Window):
 			md.destroy()
 			return False
 
+		error = 0;
 		TERMINAL = self.comboTERM.get_active_text()
 
 		G_SIZE="120x23"
@@ -560,7 +563,7 @@ class ffmpegGUI(Gtk.Window):
 			TITLE = "-t"
 		elif TERMINAL == "konsole":
 			TITLE = "--nofork"
-		elif TERMINAL = "st":
+		elif TERMINAL == "st":
 			GEOMETRY = "-g"
 			
 
@@ -640,32 +643,51 @@ class ffmpegGUI(Gtk.Window):
 			
 		
 		self.set_sensitive(False)
-		t = threading.Thread(target=self.RunEncode, args=(COMMAND,))
-		t.daemon = True
-		t.start()
+		
+		if not os.path.isfile(self.textbox1.get_text()):
+			self.callError(0)
+			return False		
+
+		try:
+			t = threading.Thread(target=self.RunEncode, args=(COMMAND,))
+			t.daemon = True
+			t.start()
+		except:			
+			self.callError(1)
+		
+	def callError(self, errorCode):
+		if errorCode == 0:
+			message = "Seems ffmpegGUI can not find the file you wish to encode.\n Please check your file exists."
+		else:
+			message = "Seems the terminal selected is incorrect or the command input is not properly coded for your terminals excecution option."
+
+		md = Gtk.MessageDialog(parent=self, flags=0, message_type=Gtk.MessageType.INFO, buttons=Gtk.ButtonsType.OK, text="An Error has occured")
+		md.format_secondary_text(message)
+		md.run()
+		md.destroy()
+		self.set_sensitive(True)
+		error = 1;
 
 	def checkEncoder(self,CODE):
-		if CODE == 0:
+		if CODE == 0 and not error == 1:
 			print("ENCODING COMPLETE!")
 			if self.switch.get_active():
 				Gtk.main_quit(0)
 			else:
-				self.set_sensitive(True)
+				self.set_sensitive(True)				
 		return False
-		
+	
 	def RunEncode(self, command):
+		
 		p = subprocess.Popen(command, shell=False, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-		res = p.communicate()
-		#print("retcode =", p.returncode)
-		#print("res =", res)
-		#print("stderr =", res[1])
-		#for line in res[0].decode(encoding='utf-8').split('\n'):
-		#	print(line)
+		res = p.communicate()		
+
 		while True:
 			GLib.idle_add(self.checkEncoder, p.returncode)
 			time.sleep(0.2)
-			if p.returncode != 0:
+			if p.returncode == 0:
 				break
+		
 
 	def checkBoxes(self):
 		if self.textbox1.get_text() == "":
