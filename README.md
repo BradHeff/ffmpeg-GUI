@@ -13,6 +13,13 @@ Tested solely on URxvt. options for other terminals have been taken from online 
 
 Any feedback is appreciated.
 
+Dependencies
+----
+* python3
+* GTK+ 3
+* [PyGObject](https://pygobject.readthedocs.io/en/latest/)
+
+
 Installation:
 ---
 
