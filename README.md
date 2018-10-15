@@ -1,6 +1,6 @@
 # ffmpeg python Gtk GUI 
 
-![screenshot](https://github.com/BradHeff/ffmpeg-GUI/blob/master/image.png)
+![screenshot](image.png)
 
 ![screenshot](image2.png)
 
