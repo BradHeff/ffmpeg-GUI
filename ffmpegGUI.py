@@ -648,25 +648,23 @@ class ffmpegGUI(Gtk.Window):
 			self.callError(0)
 			return False		
 
-		try:
-			t = threading.Thread(target=self.RunEncode, args=(COMMAND,))
-			t.daemon = True
-			t.start()
-		except:			
-			self.callError(1)
+		t = threading.Thread(target=self.RunEncode, args=(COMMAND,))
+		t.daemon = True
+		t.start()
 		
+
 	def callError(self, errorCode):
 		if errorCode == 0:
 			message = "Seems ffmpegGUI can not find the file you wish to encode.\n Please check your file exists."
 		else:
 			message = "Seems the terminal selected is incorrect or the command input is not properly coded for your terminals excecution option."
 
+		error = 1;
 		md = Gtk.MessageDialog(parent=self, flags=0, message_type=Gtk.MessageType.INFO, buttons=Gtk.ButtonsType.OK, text="An Error has occured")
 		md.format_secondary_text(message)
 		md.run()
 		md.destroy()
 		self.set_sensitive(True)
-		error = 1;
 
 	def checkEncoder(self,CODE):
 		if CODE == 0 and not error == 1:
@@ -678,15 +676,19 @@ class ffmpegGUI(Gtk.Window):
 		return False
 	
 	def RunEncode(self, command):
-		
-		p = subprocess.Popen(command, shell=False, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-		res = p.communicate()		
+		try:
+			p = subprocess.Popen(command, shell=False, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+			res = p.communicate()		
 
-		while True:
-			GLib.idle_add(self.checkEncoder, p.returncode)
-			time.sleep(0.2)
-			if p.returncode == 0:
-				break
+			while True:
+				GLib.idle_add(self.checkEncoder, p.returncode)
+				time.sleep(0.2)
+				if p.returncode == 0:
+					break
+		except:
+			GLib.idle_add(self.callError, 1)
+			print("ENCODING ERROR!")
+			
 		
 
 	def checkBoxes(self):
