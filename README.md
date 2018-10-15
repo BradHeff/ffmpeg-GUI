@@ -2,7 +2,7 @@
 
 ![screenshot](https://github.com/BradHeff/ffmpeg-GUI/blob/master/image.png)
 
-![screenshot](https://github.com/BradHeff/ffmpeg-GUI/blob/master/image2.png)
+![screenshot](image2.png)
 
 This is a GUI i made to encode video files with ease, to use this just do the following.
 
@@ -26,19 +26,14 @@ Installation:
 1. open terminal and clone repository
 
 	```bash
-
-	> git clone https://github.com/BradHeff/ffmpeg-GUI.git && cd ffmpeg-GUI
-
+	git clone https://github.com/BradHeff/ffmpeg-GUI.git && cd ffmpeg-GUI
 	```
 
 2. then run the ffmpegGUI.py
 
 	```bash
-
-	> python3 ffmpegGUI.py
-
+	python3 ffmpegGUI.py
 	```
-
 
 Alternative Installation
 ------
@@ -46,29 +41,21 @@ Alternative Installation
 1. open terminal and clone repository
 
 	```bash
-
-	> git clone https://github.com/BradHeff/ffmpeg-GUI.git && cd ffmpeg-GUI
-
+	git clone https://github.com/BradHeff/ffmpeg-GUI.git && cd ffmpeg-GUI
 	```
 
 2. make the script executable
 
 	```bash 
-
-	> chmod +x ffmpegGUI.py
-
+	chmod +x ffmpegGUI.py
 	```
-
 
 3. now you can run the script from within its directory with the following
 
-	```bash
-	
-	> ./ffmpegGUI.py
-	
+	```bash	
+	./ffmpegGUI.py	
 	```
 	
-
 Optional:
 ---
 
@@ -81,16 +68,12 @@ symlink it to your **_/usr/bin_** or **_/usr/local/bin_**
 	* replace **_DIR_** with the directory were you cloned your ffmpeg-GUI repository
 
 	```bash
-
-	> sudo ln -s /home/_USER_/_DIR_/ffmpeg-GUI/ffmpegGUI.py /usr/bin/ffmpegGUI
-
+	sudo ln -s /home/_USER_/_DIR_/ffmpeg-GUI/ffmpegGUI.py /usr/bin/ffmpegGUI
 	```
 
 2. now you can execute the script with the following from rofi, dmenu or anywere in terminal.
 
 	```bash
-
-	> ffmpegGUI
-
+	ffmpegGUI
 	```
 
